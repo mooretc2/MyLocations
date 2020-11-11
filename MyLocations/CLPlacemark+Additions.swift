@@ -9,26 +9,30 @@ import Foundation
 import CoreLocation
 
 extension CLPlacemark {
-    func toString() -> String{
+    func toString(includeCountry: Bool = false, separateLines: Bool = true) -> String{
         var line1 = ""
-        if let tmp = subThoroughfare {
-            line1 += tmp + " "
+        if let subThoroughfare = subThoroughfare {
+            line1 += subThoroughfare + " "
         }
-        if let tmp = thoroughfare {
-            line1 += tmp
+        if let thoroughfare = thoroughfare {
+            line1 += thoroughfare
         }
         
         var line2 = ""
-        if let tmp = locality {
-            line2 += tmp + " "
+        if let locality = locality {
+            line2 += locality + " "
         }
-        if let tmp = administrativeArea {
-            line2 += tmp + " "
+        if let administrativeArea = administrativeArea {
+            line2 += administrativeArea + ", "
         }
-        if let tmp = postalCode {
-            line2 += tmp
+        if let postalCode = postalCode {
+            line2 += postalCode
+        }
+        if includeCountry, let country = country {
+            line2 += " " + country
         }
         
-        return line1 + "\n" + line2
+        let separator = separateLines ? "\n" : " "
+        return line1 + separator + line2
     }
 }

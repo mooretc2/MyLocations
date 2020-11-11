@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5502CB4D2556369500C80625 /* CLPlacemark+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5502CB4C2556369500C80625 /* CLPlacemark+Additions.swift */; };
+		5502CB50255B34DA00C80625 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5502CB4F255B34DA00C80625 /* LocationDetailsViewController.swift */; };
+		5502CB53255B429F00C80625 /* CurrentLocationViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5502CB52255B429F00C80625 /* CurrentLocationViewController+Additions.swift */; };
+		5502CB56255B646300C80625 /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5502CB55255B646300C80625 /* CategoryPickerViewController.swift */; };
 		5530DD09254B6F2000138309 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5530DD08254B6F2000138309 /* AppDelegate.swift */; };
 		5530DD0B254B6F2000138309 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5530DD0A254B6F2000138309 /* SceneDelegate.swift */; };
 		5530DD0D254B6F2000138309 /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5530DD0C254B6F2000138309 /* CurrentLocationViewController.swift */; };
@@ -19,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		5502CB4C2556369500C80625 /* CLPlacemark+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLPlacemark+Additions.swift"; sourceTree = "<group>"; };
+		5502CB4F255B34DA00C80625 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
+		5502CB52255B429F00C80625 /* CurrentLocationViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrentLocationViewController+Additions.swift"; sourceTree = "<group>"; };
+		5502CB55255B646300C80625 /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		5530DD05254B6F2000138309 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5530DD08254B6F2000138309 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5530DD0A254B6F2000138309 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,9 @@
 				5530DD19254B6F2100138309 /* Info.plist */,
 				5530DD11254B6F2000138309 /* MyLocations.xcdatamodeld */,
 				5502CB4C2556369500C80625 /* CLPlacemark+Additions.swift */,
+				5502CB4F255B34DA00C80625 /* LocationDetailsViewController.swift */,
+				5502CB52255B429F00C80625 /* CurrentLocationViewController+Additions.swift */,
+				5502CB55255B646300C80625 /* CategoryPickerViewController.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -143,11 +152,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5502CB56255B646300C80625 /* CategoryPickerViewController.swift in Sources */,
+				5502CB50255B34DA00C80625 /* LocationDetailsViewController.swift in Sources */,
 				5530DD0D254B6F2000138309 /* CurrentLocationViewController.swift in Sources */,
 				5502CB4D2556369500C80625 /* CLPlacemark+Additions.swift in Sources */,
 				5530DD09254B6F2000138309 /* AppDelegate.swift in Sources */,
 				5530DD13254B6F2000138309 /* MyLocations.xcdatamodeld in Sources */,
 				5530DD0B254B6F2000138309 /* SceneDelegate.swift in Sources */,
+				5502CB53255B429F00C80625 /* CurrentLocationViewController+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
