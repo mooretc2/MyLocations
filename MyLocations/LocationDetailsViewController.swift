@@ -32,6 +32,15 @@ class LocationDetailsViewController: UITableViewController {
     
     // MARK:- Actions
     @IBAction func done() {
+        guard let mainView = navigationController?.parent?.view else { return }
+        let hudView = HudView.hud(inView: mainView, animated: true)
+        hudView.text = "Tagged"
+        
+        // this feels very wrong to me
+//        let delayInSeconds = 0.6
+//        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
+//            self.navigationController?.popViewController(animated: true)
+//        }
         navigationController?.popViewController(animated: true)
     }
     
@@ -61,6 +70,11 @@ class LocationDetailsViewController: UITableViewController {
         }
         
         dateLabel.text = format(date: Date())
+        
+        // Hide Keyboard
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        gestureRecognizer.cancelsTouchesInView = false
+        tableView.addGestureRecognizer(gestureRecognizer)
     }
 }
 
@@ -68,6 +82,17 @@ class LocationDetailsViewController: UITableViewController {
 extension LocationDetailsViewController {
     func format(date: Date) -> String {
         return dateFormatter.string(from: date)
+    }
+    
+    @objc func hideKeyboard(_ gestureRecognizer: UIGestureRecognizer) {
+        let point = gestureRecognizer.location(in: tableView)
+        guard
+            let indexPath = tableView.indexPathForRow(at: point),
+            !(indexPath.section == 0 && indexPath.row == 0)
+        else {
+            return
+        }
+        descriptionTextView.resignFirstResponder()
     }
 }
 
@@ -78,6 +103,23 @@ extension LocationDetailsViewController {
             if let controller = segue.destination as? CategoryPickerViewController {
                 controller.selectedCategory = category
             }
+        }
+    }
+}
+
+// MARK:- Table View Delegates
+extension LocationDetailsViewController {
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.section == 0 || indexPath.section == 1 {
+            return indexPath
+        } else {
+            return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            descriptionTextView.becomeFirstResponder()
         }
     }
 }
