@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class CurrentLocationViewController: UIViewController {
     @IBOutlet var messageLabel: UILabel!
@@ -28,6 +29,8 @@ class CurrentLocationViewController: UIViewController {
     
     var timer: Timer?
     var prevNavBarHiddenState = false
+    
+    var managedObjectContext: NSManagedObjectContext!
     
     // MARK:- Actions
     @IBAction func getLocation() {
@@ -73,6 +76,7 @@ class CurrentLocationViewController: UIViewController {
         if segue is CurrentLocationToLocationDetailsSegue, let controller = segue.destination as? LocationDetailsViewController {
             controller.coordinate = location!.coordinate
             controller.placemark = placemark
+            controller.managedObjectContext = managedObjectContext
         }
     }
 }

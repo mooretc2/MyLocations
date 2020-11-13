@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import CoreLocation
+import CoreData
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -29,6 +30,9 @@ class LocationDetailsViewController: UITableViewController {
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     var category = LocationCategory.noCategory
+    var date = Date()
+    
+    var managedObjectContext: NSManagedObjectContext!
     
     // MARK:- Actions
     @IBAction func done() {
@@ -36,11 +40,21 @@ class LocationDetailsViewController: UITableViewController {
         let hudView = HudView.hud(inView: mainView, animated: true)
         hudView.text = "Tagged"
         
-        // this feels very wrong to me
-//        let delayInSeconds = 0.6
-//        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
-//            self.navigationController?.popViewController(animated: true)
-//        }
+        let location = Location(context: managedObjectContext)
+        
+        location.locationDescription = descriptionTextView.text
+        location.category = category.rawValue
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            fatalCoreDataError(error)
+        }
+        
         navigationController?.popViewController(animated: true)
     }
     
@@ -69,7 +83,7 @@ class LocationDetailsViewController: UITableViewController {
             addressLabel.text = "No Address Found"
         }
         
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
         
         // Hide Keyboard
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
