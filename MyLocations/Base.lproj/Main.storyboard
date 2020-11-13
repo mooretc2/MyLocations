@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Pe-nZ-3fb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Pe-nZ-3fb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -121,6 +121,80 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1957.9710144927537" y="88.392857142857139"/>
+        </scene>
+        <!--Locations-->
+        <scene sceneID="e7K-d8-0Y3">
+            <objects>
+                <tableViewController id="xEg-s0-28O" customClass="LocationsViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="1nc-6D-L0w">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="65" id="FpJ-dv-Hl1" customClass="LocationsViewCell" customModule="MyLocations" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FpJ-dv-Hl1" id="5hQ-1E-C2C">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Nb-nY-4g4">
+                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzJ-z4-6Og">
+                                            <rect key="frame" x="20" y="40" width="394" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="bzJ-z4-6Og" secondAttribute="trailing" id="15z-RB-8k0"/>
+                                        <constraint firstAttribute="bottom" secondItem="bzJ-z4-6Og" secondAttribute="bottom" constant="10" id="69T-Hj-4bG"/>
+                                        <constraint firstItem="7Nb-nY-4g4" firstAttribute="leading" secondItem="5hQ-1E-C2C" secondAttribute="leadingMargin" id="Fu0-Eg-cmY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="7Nb-nY-4g4" secondAttribute="trailing" id="Pu3-Ye-e3z"/>
+                                        <constraint firstItem="bzJ-z4-6Og" firstAttribute="leading" secondItem="5hQ-1E-C2C" secondAttribute="leading" constant="20" symbolic="YES" id="rB0-vt-qI4"/>
+                                        <constraint firstItem="bzJ-z4-6Og" firstAttribute="top" secondItem="7Nb-nY-4g4" secondAttribute="bottom" constant="8" symbolic="YES" id="thn-HH-1nq"/>
+                                        <constraint firstItem="7Nb-nY-4g4" firstAttribute="top" secondItem="5hQ-1E-C2C" secondAttribute="topMargin" id="z7u-hU-pKO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="addressLabel" destination="bzJ-z4-6Og" id="j4v-Hh-cpg"/>
+                                    <outlet property="descriptionLabel" destination="7Nb-nY-4g4" id="eLk-Xs-8z4"/>
+                                    <segue destination="aK2-Pr-Kux" kind="show" identifier="EditLocation" customClass="LocationsViewToLocationDetailSegue" customModule="MyLocations" customModuleProvider="target" id="DXg-yJ-NHa"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xEg-s0-28O" id="Qzg-GN-fhV"/>
+                            <outlet property="delegate" destination="xEg-s0-28O" id="sQy-CA-ibd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Locations" id="iAY-b9-ghy"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tOG-L6-Urp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1980" y="819"/>
+        </scene>
+        <!--Locations-->
+        <scene sceneID="KzK-TJ-6jx">
+            <objects>
+                <navigationController id="RbJ-fx-CUD" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Locations" id="bBa-Rf-CJ5"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LL2-Vb-uZJ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="xEg-s0-28O" kind="relationship" relationship="rootViewController" id="GRn-CI-Hxo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9sy-pp-WdU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="819"/>
         </scene>
         <!--Tag Location-->
         <scene sceneID="dAx-S8-zYd">
@@ -385,7 +459,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fLa-A1-59X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="9ns-rv-hsT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2822" y="791"/>
+            <point key="canvasLocation" x="3849" y="88"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="XWV-mc-nCD">
@@ -399,6 +473,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="lYd-e0-YfH" kind="relationship" relationship="viewControllers" id="fNY-ge-J9A"/>
+                        <segue destination="RbJ-fx-CUD" kind="relationship" relationship="viewControllers" id="J6N-uO-zLb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3oH-2X-9hu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -425,6 +500,9 @@
             <point key="canvasLocation" x="1047.8260869565217" y="88.392857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="DXg-yJ-NHa"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -63,10 +63,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let tabViewControllers = tabController.viewControllers else { return }
         
-        let navController = tabViewControllers[0] as! UINavigationController
+        var navController = tabViewControllers[0] as! UINavigationController
         let controller = navController.viewControllers.first as! CurrentLocationViewController
         controller.managedObjectContext = managedObjectContext
         listenForFatalCoreDataNotifications()
+        
+        navController = tabViewControllers[1] as! UINavigationController
+        let locationsController = navController.viewControllers.first as! LocationsViewController
+        locationsController.managedObjectContext = managedObjectContext
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
